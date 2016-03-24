@@ -2,12 +2,12 @@ FROM java:openjdk-8u66-jdk
 
 RUN apt-get update && apt-get install -y wget git curl zip && rm -rf /var/lib/apt/lists/*
 
-ENV JENKINS_VERSION 1.653
+ENV JENKINS_VERSION 2.0
 RUN mkdir /usr/share/jenkins/
 RUN useradd -d /home/jenkins -m -s /bin/bash jenkins
 
 COPY init.groovy /tmp/WEB-INF/init.groovy.d/tcp-slave-angent-port.groovy
-RUN curl -L http://mirrors.jenkins-ci.org/war/$JENKINS_VERSION/jenkins.war -o /usr/share/jenkins/jenkins.war \
+RUN curl -L http://mirrors.jenkins-ci.org/war-rc/$JENKINS_VERSION/jenkins.war -o /usr/share/jenkins/jenkins.war \
   && cd /tmp && zip -g /usr/share/jenkins/jenkins.war WEB-INF/init.groovy.d/tcp-slave-angent-port.groovy && rm -rf /tmp/WEB-INF
 
 ENV JENKINS_HOME /var/jenkins_home
