@@ -1,4 +1,4 @@
-FROM java:openjdk-8u66-jdk
+FROM java:openjdk-8u92-jdk
 
 RUN apt-get update && apt-get install -y wget git curl zip && rm -rf /var/lib/apt/lists/*
 
