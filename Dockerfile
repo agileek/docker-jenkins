@@ -2,7 +2,7 @@ FROM java:openjdk-8u102-jdk
 
 RUN apt-get update && apt-get install -y wget git curl zip && rm -rf /var/lib/apt/lists/*
 
-ENV JENKINS_VERSION 2.27
+ENV JENKINS_VERSION 2.28
 RUN mkdir /usr/share/jenkins/
 RUN useradd -d /home/jenkins -m -s /bin/bash jenkins
 
